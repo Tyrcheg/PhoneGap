@@ -1,0 +1,166 @@
+<!doctype html>
+<html>
+<head>
+  <title>My Page</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="stylesheet" href="http://code.jquery.com/mobile/1.4.5/jquery.mobile-1.4.5.min.css" />
+
+  <script src="http://code.jquery.com/jquery-1.11.1.min.js"></script>
+  <script src="http://code.jquery.com/mobile/1.4.5/jquery.mobile-1.4.5.min.js"></script>
+
+  </head>
+
+  <body>
+
+    <!-- Home page -->
+    <div data-role="page" id = "home">
+
+      <div data-role="header">
+        <h1>Home</h1>
+      </div><!-- /header -->
+
+      <div role="content" class="ui-content" >
+        <ul data-role = "listview" data-filter = "false">
+          <li><a href="#infopage"   onclick = phoneInfo() data-role = "button" data-icon = "info"   data-theme = "b">Device information</a></li>
+          <li><a href="#accelpage"  onclick = getAccelerator() data-role = "button" data-icon = "recycle" data-theme = "b">Accelerometer    </a></li>
+          <li><a href="#camerapage" data-role = "button" data-icon = "camera"  data-theme = "b">Camera           </a></li>
+          <li><a href="#geolocationpage" onclick = getLocation()    data-role = "button" data-icon = "location"   data-theme = "b">Location        </a></li>
+          <li><a href="#newpage"    data-role = "button" data-icon = "plus"    data-theme = "b">New page     </a></li>
+          <li><a href="#" onclick = location.Reload()    data-role = "button" data-icon = "refresh"    data-theme = "b">Refresh        </a></li>
+          <li><a href="#"  id = "clickMeButton" onclick = clickMeButton()  data-role = "button" data-icon = "arrow-d"    data-theme = "b">Click me</a></li>
+
+          <li><a href="#" onclick = navigator.app.exitApp()         data-role = "button" data-icon = "power"    data-theme = "b">Exit            </a></li>
+        </ul>
+
+        <br/>
+      </div><!-- /content -->
+
+      <div data-role="footer" data-position = "fixed">
+        <a href="#dialogpage" data-rel = "dialog" data-icon = "plus">Add smthing</a>
+      </div><!-- /footer -->
+    </div>
+
+
+  <!-- Second page -->
+  <div data-role="page" id = "newpage">
+
+      <div data-role="header">
+        <a href="#home" data-icon = "delete">Cancel</a>
+        <h1>Second</h1>
+        <a href="#home" id = "savebutton" data-icon = "check">Save</a>
+      </div><!-- /header -->
+
+      <div role="main" class="ui-content">
+        <label for="name">What is your name, dude: </label>
+        <input type="text" name="name" value="" />
+        <!-- <a id = "savebutton" data-theme = "c" data-role = "button">Save</a>
+        <a href="#home" data-theme = "b" data-role = "button" data-icon = "back"> back</a> -->
+      </div><!-- /content -->
+
+      <div data-role="footer" data-position = "fixed">
+        <h4>My Footer</h4>
+      </div>
+
+    </div>
+  <!-- /second page -->
+
+  <!-- dialogpage -->
+  <div id = "dialogpage" data-role = "page" class="">
+
+    <div data-role="header">
+      <h1>Dialog</h1>
+    </div><!-- /header -->
+
+    <div class="" data-role = "content">
+      <p>
+        Dialog!
+      </p>
+    </div>
+  </div>
+
+  <!-- Phone info page -->
+  <div id = "infopage" data-role = "page">
+    <div data-role = "header">
+      <a href="#home" data-role = "button" data-theme = "b" data-icon = "back">back</a>
+      <h1>Device info</h1>
+    </div>
+    <div role = "main">
+      <p>Device model:     <span id="devicemodel"> </span>    </p>
+      <p>Device phonegap/cordova: <span id = "devicecordova"/></p>
+      <p>Device platform: <span id = "deviceplatform"/> </p>
+      <p>Device uuid:     <span id = "deviceuuid"/> </p>
+      <p>Device version:  <span id= "deviceversion"/></p>
+    </div>
+
+    <div data-role= "footer">
+    </div>
+  </div>
+  <!--  -->
+
+  <!-- accelerometer page -->
+  <div id = "accelpage" data-role = "page">
+    <div data-role = "header">
+      <a href="#home" data-role = "button" data-theme = "b" data-icon = "back">back</a>
+      <h1>Accelerometre</h1>
+    </div>
+    <div data-role = "main">
+      <p>X: <span id ="aX"/></p>
+      <p>Y: <span id ="aY"/></p>
+      <p>Z: <span id ="aZ"/></p>
+      <p>Ticks: <span id ="aTime"/></p>
+    </div>
+
+  </div>
+  <!--  -->
+
+  <!-- camera page -->
+  <div id= "camerapage" data-role = "page">
+    <div data-role = "header">
+      <a href="#home" data-role = "button" data-theme = "b" data-icon = "back"> back</a>
+      <h1>Camera</h1>
+    </div>
+
+    <div data-role = "main">
+      <div class="" style = "text-align: center; margin-top: 50 px;">
+        <button class="ui-btn ui-btn-inline ui-icon-camera ui-btn-icon-bottom"
+          name="picButton" onclick=picButClick() >Take a picture</button>
+      </div>
+
+      <p><span id = "error"/> </p>
+      <p><span id = "imageuri"/></p>
+    </div>
+  </div>
+  <!--  -->
+
+  <!-- location -->
+  <div id = "geolocationpage" data-role = "page">
+    <div data-role = "header">
+        <a href="#home" data-role = "button" data-theme = "b" data-icon = "back">back</a>
+        <h1>Location</h1>
+    </div>
+
+    <div data-role= "main">
+        <p>Latitude: <span id = "lat"/></p>
+        <p>Longitude: <span id = "lon"/></p>
+    </div>
+    <hr/>
+  </div>
+
+</body>
+
+<script type="text/javascript" src="js/index.js"></script>
+<script type="text/javascript" src="cordova.js"></script>
+
+<script type="text/javascript">
+  document.addEventListener('deviceready', onDeviceReady, false);
+</script>
+
+
+
+<!-- <script type="text/javascript" src="js/index.js"></script> -->
+<!-- <script type="text/javascript">
+app.initialize();
+</script> -->
+
+
+</html>
